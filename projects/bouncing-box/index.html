@@ -6,8 +6,12 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		body {
-			background-image: url("images/");
+			background-image: url("images/bouncyballbackground.jpg");
 			background-color: #cccccc;
+			-webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
 		}
 		.box {
 			width: 70px;
@@ -88,6 +92,7 @@
 				else if(positionX < 0){
 					speed = -speed
 				}
+				
 			};
 
 			/* 
@@ -109,11 +114,7 @@
 		})();
 	</script>
 	<style>
-		body {
-        background-size: cover;
-		background-image: url("");
- 		background-color: #1a7e3b;
-		}
+		
 	</style>
 </body>
 </html>
