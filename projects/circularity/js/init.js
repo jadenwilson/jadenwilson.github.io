@@ -33,11 +33,9 @@ var init = function (window) {
 
         // TODO 3 / 7 : Call the drawCircle() function 
         /* Your Function Calls HERE */
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
+        for (var drawCircle = 0; drawCircle < 100; drawCircle++ ){
+              
+        }//drawCircle will start at 0 and for every time it is less than 100 the value of drawCircle will increase by one
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -56,14 +54,14 @@ var init = function (window) {
             physikz.updatePosition(3);
             physikz.updatePosition(4);
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-           
-
-            // TODO 9 : Iterate over the array
             game.checkCirclePosition(0);
             game.checkCirclePosition(1);
             game.checkCirclePosition(2);
             game.checkCirclePosition(3);
             game.checkCirclePosition(4);
+
+            // TODO 9 : Iterate over the array
+            
         }
     
         /* 
@@ -79,8 +77,15 @@ var init = function (window) {
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
-
+            if (circle.x < 0){
+                circle.x = canvas.width;
+            } // if the circle goes off the screen going left then put it at the right side of the screen
+            if (circle.y > canvas.height){
+                circle.y = 0;
+            } // if the circle goes off the screen going up then put it at the bottom of the screen
+            if (circle.y < 0){
+                circle.y = canvas.height;
+            } // if the circle goes off the screen going down then put it at the top of the screen
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
