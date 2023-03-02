@@ -1,5 +1,6 @@
 var init = function (window) {
     'use strict';
+    
     var 
         draw = window.opspark.draw,
         physikz = window.opspark.racket.physikz,
@@ -14,6 +15,9 @@ var init = function (window) {
         
         window.opspark.game = {};
         var game = window.opspark.game;
+        
+        
+
         
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM SETUP ////////////////////////////
@@ -34,7 +38,7 @@ var init = function (window) {
         // TODO 3 / 7 : Call the drawCircle() function 
         /* Your Function Calls HERE */
         for (var count = 0; count < 100; count++ ){
-              drawCircle();
+              drawCircle();//calls the function drawCircle every time the variable count is less than 100
         }//drawCircle will start at 0 and for every time it is less than 100 the value of drawCircle will increase by one
 
         ////////////////////////////////////////////////////////////
@@ -51,11 +55,11 @@ var init = function (window) {
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
             
-
+            //Code deleted b/c every time i is less the the circles array i will increase by one and check the circles position and update its poition
             for (var i = 0; i < circles.length; i++){
-                var eachCircle = circles[i];
-                physikz.updatePosition(eachCircle)
-                game.checkCirclePosition(eachCircle)
+                var eachCircle = circles[i];//makes the new variable eachCircle equal to the array circles every time i is less than the length of the array 
+                physikz.updatePosition(eachCircle)//changes cirles position
+                game.checkCirclePosition(eachCircle)//checks cirles position 
             }
             // TODO 9 : Iterate over the array
             
