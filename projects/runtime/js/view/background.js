@@ -36,11 +36,16 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
+            var backgroundFill = draw.rect(canvasWidth,groundY,'lightyellow');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
-            
+            var moon = draw.bitmap("img/moon.png");// draw the image as a bitmap and stores it to the variable moon 
+            moon.x = 300;// creates an x key for the moon object and assigns it a value of 300
+            moon.y = 200;// creates an y key for the moon object and assigns it a value of 200
+            moon.scaleX = 0.5;// scale the x value of the moon
+            moon.scaleY = 0.5;// scale the y value of the moon
+            background.addChild(moon);// add the moon as a child to background so it can be seen
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
