@@ -60,8 +60,8 @@ var background = function (window) {
             
 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            var buildingHeights = [300, 150, 175, 200, 275];// creates a variable called buildingHeight and stores 300 as the height of the building
-            var buildingColors = ["black", "green", "red", "orange", "blue"]
+            var buildingHeights = [300, 150, 175, 200, 275];// created an array called buildingHeight and stores them in the variable building height
+            var buildingColors = ["black", "green", "red", "orange", "blue"]// created an array called buildingColors and stored them in the variable building colors
             var building;
             for (var i = 0; i < buildingHeights.length; ++i) {
                 building = draw.rect(75, buildingHeights[i], buildingColors[i], "Black", 1);// draws a rectangle and stores it in the building variable
@@ -100,16 +100,22 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x - 1;
+            tree.x = tree.x - 3;// takes current x position of the tree and subtracts from the current position to make it move left and reassigns it to tree.x
 
-            if (tree.x < -200) {
+            // checks if the tree has moved off the canvas and if it has it resets to the right side of the canvas
+            if (tree.x < -300) {
             tree.x = canvasWidth;
             }
             
             // TODO 5: Part 2 - Parallax
+            //loops through the buildings array to access each index of the array, moves it, and checks its position on the canvas and rests to the right side if it goes off the left           
             for (var i = 0; i < buildings.length; i++){
                 var building = buildings[i];
-                building.x = building.x - 1;
+                building.x = building.x - 1;// moves the building
+                
+                if (building.x < -300) {// checks the position of the building
+                    building.x = canvasWidth;// resets the building to the right side of the canvas
+                    }
             }
 
         } // end of update function - DO NOT DELETE
