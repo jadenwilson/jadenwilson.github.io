@@ -26,7 +26,7 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
-        var tree;
+        var tardis;
         var buildings = [];
      
         // called at the start of game and whenever the page is resized
@@ -37,9 +37,19 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
+            var ctx = canvas.getContext("2d"); 
+            var grd = ctx.createLinearGradient(0,canvasHeight,0,0);
+            grd.addColorStop(0.26, "#ffffff");
+            grd.addColorStop(0.3,"#C724B1");
+            grd.addColorStop(1,"#000000"); 
+            grd.addColorStop(0.1,"#000000");
+            var backgroundFill = draw.rect(canvasWidth, groundY, grd);
+            background.addChild(backgroundFill);
+          
+            /*
             var backgroundFill = draw.rect(canvasWidth,groundY,'lightyellow');
             background.addChild(backgroundFill);
-            
+            */
             // TODO: 3 - Add a moon and starfield
             
             // loop that draw stars
@@ -83,11 +93,19 @@ var background = function (window) {
               }
             */
             // TODO 4: Part 1 - Add a tree
+            /*
             tree = draw.bitmap("img/tree.png");// draws a tree using bitmap and stores it to the variable tree
             tree.x = canvasWidth;// sets the x value of tree 
             tree.y = groundY - 240;// sets the y value of tree
             background.addChild(tree);// adds the tree to the background as a child
-            
+            */
+           
+            tardis = draw.bitmap("img/Tardis.png");// draws a tree using bitmap and stores it to the variable tree
+            tardis.x = canvasWidth;// sets the x value of tree 
+            tardis.y = groundY - 240;// sets the y value of tree
+            background.addChild(tardis);// adds the tree to the background as a child
+           
+           
         } // end of render function - DO NOT DELETE
         
         
@@ -100,13 +118,19 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
+           /*
             tree.x = tree.x - 3;// takes current x position of the tree and subtracts from the current position to make it move left and reassigns it to tree.x
-
+            */
+            tardis.x = tardis.x - 3;
             // checks if the tree has moved off the canvas and if it has it resets to the right side of the canvas
+            /*
             if (tree.x < -300) {
             tree.x = canvasWidth;
             }
-            
+            */
+            if (tardis.x < -300) {
+                tardis.x = canvasWidth;
+                }
             // TODO 5: Part 2 - Parallax
             //loops through the buildings array to access each index of the array, moves it, and checks its position on the canvas and rests to the right side if it goes off the left           
             for (var i = 0; i < buildings.length; i++){
