@@ -27,8 +27,9 @@ var background = function (window) {
         
         // ANIMATION VARIABLES HERE:
         var tardis;
+        /*
         var buildings = [];
-     
+        */
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function render() {
@@ -70,6 +71,7 @@ var background = function (window) {
             
 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
+           /*
             var buildingHeights = [300, 150, 175, 200, 275];// created an array called buildingHeight and stores them in the variable building height
             var buildingColors = ["black", "green", "red", "orange", "blue"]// created an array called buildingColors and stored them in the variable building colors
             var building;
@@ -80,7 +82,7 @@ var background = function (window) {
                 background.addChild(building);// add the building as a child to the background
                 buildings.push(building);// adds the buildings to the buildings array
               }
-
+              */
             // loop that will create buildings 
            /*
             for (var i = 0; i < 5; ++i) {
@@ -102,7 +104,7 @@ var background = function (window) {
            
             tardis = draw.bitmap("img/Tardis.png");// draws a tree using bitmap and stores it to the variable tree
             tardis.x = canvasWidth;// sets the x value of tree 
-            tardis.y = groundY - 240;// sets the y value of tree
+            tardis.y = groundY - 222;// sets the y value of tree
             background.addChild(tardis);// adds the tree to the background as a child
            
            
@@ -133,6 +135,7 @@ var background = function (window) {
                 }
             // TODO 5: Part 2 - Parallax
             //loops through the buildings array to access each index of the array, moves it, and checks its position on the canvas and rests to the right side if it goes off the left           
+            /*
             for (var i = 0; i < buildings.length; i++){
                 var building = buildings[i];
                 building.x = building.x - 1;// moves the building
@@ -141,7 +144,7 @@ var background = function (window) {
                     building.x = canvasWidth;// resets the building to the right side of the canvas
                     }
             }
-
+            */
         } // end of update function - DO NOT DELETE
         
         

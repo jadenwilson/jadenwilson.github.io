@@ -90,7 +90,10 @@ var level01 = function (window) {
 
         function createReward (x, y) {
             var reward = game.createGameItem("reward", 25);// create the gameItem and store it to the variable reward
+            /*
             var blueSquare = draw.rect(50, 50, "blue");// draws a rectangle and store it in the variable blueSquare
+            */
+            var blueSquare = draw.bitmap("img/Reward.png");
             blueSquare.x = -25;// stores a value as the x value of the gameItem
             blueSquare.y = -25;// stores a value as the y value of the gameItem
             reward.addChild(blueSquare);// adds the gameItem as a child of reward
@@ -98,12 +101,15 @@ var level01 = function (window) {
             reward.y = y;// stores the value passed as the x argument as reward's y value
             game.addGameItem(reward);// adds the reward as an item to the game
             reward.velocityX = -3;// assigns a value to the velocityX of the reward to make it move 
+        
            
             reward.onProjectileCollision = function (){
                 game.increaseScore(100);//increases the score when Halle shoots the reward
                 game.changeIntegrity(50);// increase Halles health when shooting the reward
                 reward.fadeOut();// fades out the reward when Halle shoots the reward
             }
+
+           
         }
 
         // loop for gameItems
