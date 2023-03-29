@@ -21,9 +21,9 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 800, "y": groundY - 10},
                 { "type": "sawblade", "x": 1000, "y": groundY - 110},
                 
-                { "type": "enemy", "x": 400, "y": groundY - 10},
-                { "type": "enemy", "x": 800, "y": groundY - 100},
-                { "type": "enemy", "x": 900, "y": groundY - 50},
+                { "type": "enemyOne", "x": 400, "y": groundY - 10},
+                { "type": "enemyTwo", "x": 800, "y": groundY - 100},
+                { "type": "enemyOne", "x": 900, "y": groundY - 50},
                 
                 { "type": "reward", "x": 500, "y": groundY - 60},
                 { "type": "reward", "x": 95000, "y": groundY - 100},
@@ -66,21 +66,52 @@ var level01 = function (window) {
         }
 
         
-        function createEnemy (x, y) {
-            var enemy = game.createGameItem("enemy", 25);// create the gameItem and store it to the variable enemy
+        function createEnemyOne (x, y) {
+            var enemyOne = game.createGameItem("enemyOne", 25);// create the gameItem and store it to the variable enemy
+            var redSquareOne = draw.bitmap("img/EnemyOne.png");
+            /*
             var redSquare = draw.rect(50, 50, "red");// draws a rectangle and store it in the variable redSquare
-            redSquare.x = -25;// stores a value as the x value of the gameItem
-            redSquare.y = -25;// stores a value as the y value of the gameItem
-            enemy.addChild(redSquare);// adds the gameItem as a child of enemy
-            enemy.x = x;// stores the value passed as the x argument as enemy's x value 
-            enemy.y = y;// stores the value passed as the y argument as enemy's y value 
-            game.addGameItem(enemy);// adds the enemy as an item to the game
-            enemy.velocityX = -3;// assigns a value to the velocityX of the enemy to make it move 
-            
-            enemy.onPlayerCollision = function () {
+            */
+            redSquareOne.x = -25;// stores a value as the x value of the gameItem
+            redSquareOne.y = -25;// stores a value as the y value of the gameItem
+            enemyOne.addChild(redSquareOne);// adds the gameItem as a child of enemy
+            enemyOne.x = x;// stores the value passed as the x argument as enemy's x value 
+            enemyOne.y = y;// stores the value passed as the y argument as enemy's y value 
+            game.addGameItem(enemyOne);// adds the enemy as an item to the game
+            enemyOne.velocityX = -3;// assigns a value to the velocityX of the enemy to make it move 
+            redSquareOne.scaleX = 0.1
+            redSquareOne.scaleY = 0.1
+
+            enemyOne.onPlayerCollision = function () {
                 game.changeIntegrity(-10);// subtracts from the health when Halle collides with enemy
             };
-            enemy.onProjectileCollision = function (){
+            enemyOne.onProjectileCollision = function (){
+                game.increaseScore(100);//increases the score when Halle shoots the enemy
+                game.changeIntegrity(10);// increase Halles health when shooting the enemy
+                enemy.fadeOut();// fades out the enemy when Halle shoots the enemy
+            }
+        }
+
+        function createEnemyTwo (x, y) {
+            var enemyTwo = game.createGameItem("enemyTwo", 25);// create the gameItem and store it to the variable enemy
+            var redSquareTwo = draw.bitmap("img/EnemyTwo.png");
+            /*
+            var redSquare = draw.rect(50, 50, "red");// draws a rectangle and store it in the variable redSquare
+            */
+            redSquareTwo.x = -25;// stores a value as the x value of the gameItem
+            redSquareTwo.y = -25;// stores a value as the y value of the gameItem
+            enemyTwo.addChild(redSquareTwo);// adds the gameItem as a child of enemy
+            enemyTwo.x = x;// stores the value passed as the x argument as enemy's x value 
+            enemyTwo.y = y;// stores the value passed as the y argument as enemy's y value 
+            game.addGameItem(enemyTwo);// adds the enemy as an item to the game
+            enemyTwo.velocityX = -3;// assigns a value to the velocityX of the enemy to make it move 
+            redSquareTwo.scaleX = 0.3
+            redSquareTwo.scaleY = 0.3
+
+            enemyTwo.onPlayerCollision = function () {
+                game.changeIntegrity(-10);// subtracts from the health when Halle collides with enemy
+            };
+            enemyTwo.onProjectileCollision = function (){
                 game.increaseScore(100);//increases the score when Halle shoots the enemy
                 game.changeIntegrity(10);// increase Halles health when shooting the enemy
                 enemy.fadeOut();// fades out the enemy when Halle shoots the enemy
@@ -101,7 +132,8 @@ var level01 = function (window) {
             reward.y = y;// stores the value passed as the x argument as reward's y value
             game.addGameItem(reward);// adds the reward as an item to the game
             reward.velocityX = -3;// assigns a value to the velocityX of the reward to make it move 
-        
+            blueSquare.scaleX = 0.1
+            blueSquare.scaleY = 0.1
            
             reward.onProjectileCollision = function (){
                 game.increaseScore(100);//increases the score when Halle shoots the reward
@@ -119,8 +151,11 @@ var level01 = function (window) {
             if (gameItem.type === "sawblade"){// checks the type of the game item 
                 createSawBlade(gameItem.x, gameItem.y);// if the type is true then it excuctes createSawBlade
             }
-            if (gameItem.type === "enemy"){// checks the type of the game item
-                createEnemy(gameItem.x, gameItem.y);// if the type is true then it excuctes createEnemy
+            if (gameItem.type === "enemyOne"){// checks the type of the game item
+                createEnemyOne(gameItem.x, gameItem.y);// if the type is true then it excuctes createEnemy
+            }
+            if (gameItem.type === "enemyTwo"){// checks the type of the game item
+                createEnemyTwo(gameItem.x, gameItem.y);// if the type is true then it excuctes createEnemy
             }
             if (gameItem.type === "reward"){// checks the type of the game item
                 createReward(gameItem.x, gameItem.y);// if the type is true then it excuctes createReward
