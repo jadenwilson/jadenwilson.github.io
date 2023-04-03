@@ -18,12 +18,18 @@ var level01 = function (window) {
             "gameItems": [
                 { "type": "sawblade", "x": 400, "y": groundY - 110},
                 { "type": "sawblade", "x": 600, "y": groundY - 110},
-                { "type": "sawblade", "x": 800, "y": groundY - 10},
-                { "type": "sawblade", "x": 1000, "y": groundY - 110},
+                { "type": "sawblade", "x": 1200, "y": groundY - 10},
+                { "type": "sawblade", "x": 2000, "y": groundY - 110},
+                { "type": "sawblade", "x": 2200, "y": groundY - 10},
+                { "type": "sawblade", "x": 1800, "y": groundY - 10},
+                { "type": "sawblade", "x": 1500, "y": groundY - 10},
+                { "type": "laserbeam", "x": 1500, "y": groundY - 110},
+                { "type": "laserbeam", "x": 3000, "y": groundY - 110},
+                { "type": "laserbeam", "x": 2000, "y": groundY - 110},
                 
-                { "type": "enemyOne", "x": 400, "y": groundY - 10},
-                { "type": "enemyTwo", "x": 800, "y": groundY - 100},
-                { "type": "enemyOne", "x": 900, "y": groundY - 50},
+                { "type": "enemyOne", "x": 680, "y": groundY - 90},
+                { "type": "enemyTwo", "x": 800, "y": groundY - 70},
+                { "type": "enemyOne", "x": 1000, "y": groundY - 50},
                 
                 { "type": "reward", "x": 500, "y": groundY - 60},
                 { "type": "reward", "x": 95000, "y": groundY - 100},
@@ -48,6 +54,23 @@ var level01 = function (window) {
             sawBladeHitZone.addChild(obstacleImage);// adds obstacleImage as a child of the sawBladeHitZone
             obstacleImage.x = -25;// modify the x value of the image to line up with the hitzone
             obstacleImage.y = -25;// modify the y value of the image to line up with the hitzone
+
+        }
+
+        function createLaserBeam(x, y){
+            var hitZoneSize = 25;// the size of the hitzone assigned to the variable hitZoneSize
+            var damageFromObstacle = 50;// sets the damage amount and assigns to a variable called damageFromObsticale
+            var laserBeamHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);// creats the obsticale and assigns it to the sawBladeHitZone
+            laserBeamHitZone.x = x;// assigns the x value using the argument passed as the x parameter
+            laserBeamHitZone.y = y;// assigns the y value using the argument passed as the y parameter
+            game.addGameItem(laserBeamHitZone);// adds the hitzone to the game  
+            var obstacleImage = draw.bitmap("img/LaserBeam.png");// draws the image as a bitmap and stores it to the variable obstacleImage
+            laserBeamHitZone.addChild(obstacleImage);// adds obstacleImage as a child of the sawBladeHitZone
+            obstacleImage.x = -25;// modify the x value of the image to line up with the hitzone
+            obstacleImage.y = -25;// modify the y value of the image to line up with the hitzone
+            laserBeamHitZone.velocityX = -5;
+            laserBeamHitZone.scaleX = 0.1;
+            laserBeamHitZone.scaleY = 0.1;
 
         }
 
@@ -88,7 +111,7 @@ var level01 = function (window) {
             enemyOne.onProjectileCollision = function (){
                 game.increaseScore(100);//increases the score when Halle shoots the enemy
                 game.changeIntegrity(10);// increase Halles health when shooting the enemy
-                enemy.fadeOut();// fades out the enemy when Halle shoots the enemy
+                enemyOne.fadeOut();// fades out the enemy when Halle shoots the enemy
             }
         }
 
@@ -105,8 +128,8 @@ var level01 = function (window) {
             enemyTwo.y = y;// stores the value passed as the y argument as enemy's y value 
             game.addGameItem(enemyTwo);// adds the enemy as an item to the game
             enemyTwo.velocityX = -3;// assigns a value to the velocityX of the enemy to make it move 
-            redSquareTwo.scaleX = 0.3
-            redSquareTwo.scaleY = 0.3
+            redSquareTwo.scaleX = 0.8
+            redSquareTwo.scaleY = 0.8
 
             enemyTwo.onPlayerCollision = function () {
                 game.changeIntegrity(-10);// subtracts from the health when Halle collides with enemy
@@ -114,7 +137,7 @@ var level01 = function (window) {
             enemyTwo.onProjectileCollision = function (){
                 game.increaseScore(100);//increases the score when Halle shoots the enemy
                 game.changeIntegrity(10);// increase Halles health when shooting the enemy
-                enemy.fadeOut();// fades out the enemy when Halle shoots the enemy
+                enemyTwo.fadeOut();// fades out the enemy when Halle shoots the enemy
             }
         }
         
@@ -150,6 +173,9 @@ var level01 = function (window) {
 
             if (gameItem.type === "sawblade"){// checks the type of the game item 
                 createSawBlade(gameItem.x, gameItem.y);// if the type is true then it excuctes createSawBlade
+            }
+            if (gameItem.type === "laserbeam"){// checks the type of the game item 
+                createLaserBeam(gameItem.x, gameItem.y);// if the type is true then it excuctes createSawBlade
             }
             if (gameItem.type === "enemyOne"){// checks the type of the game item
                 createEnemyOne(gameItem.x, gameItem.y);// if the type is true then it excuctes createEnemy
