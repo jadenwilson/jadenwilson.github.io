@@ -18,21 +18,54 @@ var level01 = function (window) {
             "gameItems": [
                 { "type": "sawblade", "x": 400, "y": groundY - 110},
                 { "type": "sawblade", "x": 600, "y": groundY - 110},
-                { "type": "sawblade", "x": 1200, "y": groundY - 10},
                 { "type": "sawblade", "x": 2000, "y": groundY - 110},
+                { "type": "sawblade", "x": 3000, "y": groundY - 110},
+                { "type": "sawblade", "x": 4000, "y": groundY - 110},
+                { "type": "sawblade", "x": 5000, "y": groundY - 110},
+                { "type": "sawblade", "x": 1200, "y": groundY - 10},
                 { "type": "sawblade", "x": 2200, "y": groundY - 10},
                 { "type": "sawblade", "x": 1800, "y": groundY - 10},
                 { "type": "sawblade", "x": 1500, "y": groundY - 10},
+                { "type": "sawblade", "x": 2500, "y": groundY - 10},
+                { "type": "sawblade", "x": 3500, "y": groundY - 10},
+                { "type": "sawblade", "x": 4500, "y": groundY - 10},
+                { "type": "sawblade", "x": 5500, "y": groundY - 10},
+
                 { "type": "laserbeam", "x": 1500, "y": groundY - 110},
                 { "type": "laserbeam", "x": 3000, "y": groundY - 110},
-                { "type": "laserbeam", "x": 2000, "y": groundY - 110},
+                { "type": "laserbeam", "x": 6000, "y": groundY - 110},
+                { "type": "laserbeam", "x": 7500, "y": groundY - 110},
+                { "type": "laserbeam", "x": 3500, "y": groundY - 110},
+                { "type": "laserbeam", "x": 8000, "y": groundY - 110},
+                { "type": "laserbeam", "x": 10500, "y": groundY - 110},
+                { "type": "laserbeam", "x": 15000, "y": groundY - 110},
                 
-                { "type": "enemyOne", "x": 680, "y": groundY - 90},
+                { "type": "enemyOne", "x": 680, "y": groundY - 110},
+                { "type": "enemyOne", "x": 680, "y": groundY - 110},
+                { "type": "enemyOne", "x": 1000, "y": groundY - 110},
+                { "type": "enemyOne", "x": 3800, "y": groundY - 110},
+                { "type": "enemyOne", "x": 3500, "y": groundY - 110},
+                { "type": "enemyOne", "x": 2800, "y": groundY - 110},
+                { "type": "enemyOne", "x": 4400, "y": groundY - 110},
+
                 { "type": "enemyTwo", "x": 800, "y": groundY - 70},
-                { "type": "enemyOne", "x": 1000, "y": groundY - 50},
+                { "type": "enemyTwo", "x": 1350, "y": groundY - 70},
+                { "type": "enemyTwo", "x": 1760, "y": groundY - 70},
+                { "type": "enemyTwo", "x": 2900, "y": groundY - 70},
+                { "type": "enemyTwo", "x": 3900, "y": groundY - 70},
+                { "type": "enemyTwo", "x": 4800, "y": groundY - 70},
+                { "type": "enemyTwo", "x": 5200, "y": groundY - 70},
+                { "type": "enemyTwo", "x": 5700, "y": groundY - 70},
                 
-                { "type": "reward", "x": 500, "y": groundY - 60},
-                { "type": "reward", "x": 95000, "y": groundY - 100},
+                { "type": "reward", "x": 700, "y": groundY - 60},
+                { "type": "reward", "x": 950, "y": groundY - 60},
+                { "type": "reward", "x": 1800, "y": groundY - 60},
+                { "type": "reward", "x": 2200, "y": groundY - 60},
+                { "type": "reward", "x": 3800, "y": groundY - 60},
+                { "type": "reward", "x": 4200, "y": groundY - 60},
+                { "type": "reward", "x": 4900, "y": groundY - 60},
+                { "type": "reward", "x": 5300, "y": groundY - 60},
+
             ]
         };
         window.levelData = levelData;
@@ -101,7 +134,7 @@ var level01 = function (window) {
             enemyOne.x = x;// stores the value passed as the x argument as enemy's x value 
             enemyOne.y = y;// stores the value passed as the y argument as enemy's y value 
             game.addGameItem(enemyOne);// adds the enemy as an item to the game
-            enemyOne.velocityX = -3;// assigns a value to the velocityX of the enemy to make it move 
+            enemyOne.velocityX = -4;// assigns a value to the velocityX of the enemy to make it move 
             redSquareOne.scaleX = 0.1
             redSquareOne.scaleY = 0.1
 
@@ -127,7 +160,7 @@ var level01 = function (window) {
             enemyTwo.x = x;// stores the value passed as the x argument as enemy's x value 
             enemyTwo.y = y;// stores the value passed as the y argument as enemy's y value 
             game.addGameItem(enemyTwo);// adds the enemy as an item to the game
-            enemyTwo.velocityX = -3;// assigns a value to the velocityX of the enemy to make it move 
+            enemyTwo.velocityX = -2;// assigns a value to the velocityX of the enemy to make it move 
             redSquareTwo.scaleX = 0.8
             redSquareTwo.scaleY = 0.8
 
